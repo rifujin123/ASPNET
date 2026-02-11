@@ -49,7 +49,7 @@ namespace NZWalksAPI.Controllers
             var region = await regionRepository.GetByIdAsync(id);
 
             if (region == null)
-                return null;
+                return NotFound();
             //return dto
             return Ok(mapper.Map<RegionDto>(region));
         }
