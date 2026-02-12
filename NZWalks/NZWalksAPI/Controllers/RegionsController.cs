@@ -68,7 +68,7 @@ namespace NZWalksAPI.Controllers
             //Map domain model back to dto
             var regionDto = mapper.Map<RegionDto>(regionDomainModel);
 
-            return CreatedAtAction(nameof(GetById),new {id = regionDto.Id}, regionDto);
+            return CreatedAtAction(nameof(GetById), new { id = regionDto.Id }, regionDto);
         }
 
 
@@ -83,10 +83,11 @@ namespace NZWalksAPI.Controllers
 
             regionDomainModel = await regionRepository.UpdateAsync(id, regionDomainModel);
 
-            if(regionDomainModel == null)
+            if (regionDomainModel == null)
                 return NotFound();
 
             return Ok(mapper.Map<RegionDto>(regionDomainModel));
+
         }
 
 
